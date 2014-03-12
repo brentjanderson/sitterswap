@@ -9,8 +9,8 @@
     "packages": {
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.0-1",
-        "commit": "329dccb08bfc18c635676dea600ac9953162cda9"
+        "tag": "v3.1.1-1",
+        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
@@ -19,8 +19,8 @@
       },
       "apm": {
         "git": "https://github.com/arunoda/meteor-apm-client.git",
-        "tag": "v0.2.4",
-        "commit": "0958a97a6d67960b40ba8db804e7230dd1cf9d98"
+        "tag": "v0.2.13",
+        "commit": "f9e77e1ca6a7ccab5a4f3a7b5c8295296906cf35"
       }
     }
   }
