@@ -9,4 +9,14 @@ Router.map(function () {
         path: '/',
         template: 'home'
     });
+
+    this.route('about', {
+    	path: '/about',
+    	template: 'about'
+    });
+
+    this.route('profile', {
+    	path: '/profile',
+    	template: 'profile'
+    });
 });
