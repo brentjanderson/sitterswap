@@ -1,5 +1,6 @@
 <head>
   <title>SitterSwap</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
 </head>
 
 <body></body>
@@ -31,7 +32,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
 
       {{yield}}
 
@@ -47,15 +48,17 @@
 </template>
 
 <template name="home">
+  {{#unless currentUser}}
+    {{> homepage }}
+  {{else}}
+    {{> homedash}}
+  {{/unless}}
+</template>
+
+<template name="homepage">
   <div class="jumbotron">
     <h1>Sitterswap</h1>
     <blockquote>Connect with friends, swap babies.</blockquote>
-    {{#unless currentUser}}
     <a href="/signup" class="btn btn-primary btn-lg">Sign up now</a>
-    {{else}}
-    <p>You are logged in! Thanks {{currentUser._id}}</p>
-    {{/unless}}
   </div>
 </template>
-
-
