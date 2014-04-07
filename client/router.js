@@ -19,4 +19,9 @@ Router.map(function () {
     	path: '/profile',
     	template: 'profile'
     });
+
+    this.route('newswap', {
+        path: '/newswap',
+        template: 'newswap'
+    });
 });

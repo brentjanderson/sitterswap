@@ -1,6 +1,8 @@
 <head>
   <title>SitterSwap</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+  <link rel="stylesheet" href="/css/jquery.ui.timepicker.css" />
 </head>
 
 <body></body>
@@ -22,6 +24,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             {{#if currentUser}}
+            <li><a href="/newswap">New Swap</a></li>
             <li><a href="/profile">Profile</a></li>
             {{/if}}
           </ul>

@@ -1,0 +1,65 @@
+<template name="newswap">
+  <form class="form-horizontal">
+    <fieldset>
+      <legend>Create a New Swap</legend>
+      <div class="form-group">
+        <label for="swapdate" class="col-lg-2 control-label">Swap Date</label>
+        <div class="col-lg-10">
+          <input class="form-control" type="date" id="swapdate" name="swapdate">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="starttime" class="col-lg-2 control-label">Start Time</label>
+        <div class="col-lg-10">
+          <input class="form-control" id="starttime" name="starttime" type="time">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="endtime" class="col-lg-2 control-label">End Time</label>
+        <div class="col-lg-10">
+          <input class="form-control" id="endtime" name="endtime" type="time">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="swaptype" class="col-lg-2 control-label">Swap Type</label>
+        <div class="col-lg-10">
+          <select class="form-control" id="swaptype" name="swaptype">
+            <option value="one-time" selected>One-Time</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="childnotes" class="col-lg-2 control-label">Child Notes</label>
+        <div class="col-lg-10">
+          <textarea class="form-control" rows="3" id="childnotes" name="childnotes"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <script type="text/javascript">
+    $(function() {
+      $("#swapdate").datepicker();
+      
+      $('input[type="time"]').timepicker({
+        showPeriod: true,
+        showLeadingZero: true
+      });
+    });
+
+    // $('input[type="time"]').timepicker({
+    //   showPeriod: true,
+    //   showLeadingZero: true
+    // });
+  </script>
+
+</template>
