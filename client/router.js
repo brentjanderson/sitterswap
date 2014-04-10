@@ -16,7 +16,16 @@ Router.map(function () {
     });
 
     this.route('profile', {
-    	path: '/profile',
-    	template: 'profile'
+        path: '/profile',
+        template: 'profile'
+    });
+
+    this.route('propose', {
+        path: '/propose',
+        template: 'propose',
+        data: function(){
+            var params = this.params;
+            return Meteor.users.findOne({_id:this.params.uid});
+        }
     });
 });
