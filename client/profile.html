@@ -41,4 +41,19 @@
 		{{/each}}
 		</tbody>
 	</table>
+
+	<table>
+		<thead>
+			<th>Name</th>
+			<th>Request Date</th>
+		</thead>
+		<tbody>
+		{{#each requestedSwappers}}
+			<tr>
+				<td>{{swapperName this.u1}}</td>
+				<td>{{this.pDate}}</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
 </template>

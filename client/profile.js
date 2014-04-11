@@ -32,6 +32,10 @@ Template.profile.pendingSwappers = function(){
 	return SwapShips.find({approved: false, u2:Meteor.userId()}).fetch()
 }
 
+Template.profile.requestedSwappers = function(){
+	return SwapShips.find({approved: false, u1:Meteor.userId()}).fetch()
+}
+
 Template.profile.events({
 	'click button.approve': function(event){
 		var swapship = SwapShips.findOne({_id:event.target.getAttribute("id")});
