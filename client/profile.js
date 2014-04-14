@@ -28,7 +28,7 @@ Template.profile.userLink = function(){
 
 Template.profile.swapperName = function(id){
 	var swapper = Meteor.users.findOne(id);
-	if(swapper !== null){
+	if(swapper !== null && swapper.profile){
 		return swapper.profile.name;
 	}
 	return id;
