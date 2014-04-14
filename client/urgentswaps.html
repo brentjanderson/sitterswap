@@ -1,0 +1,27 @@
+<template name="urgentswaps">
+	<h1 class="text-danger">Urgent Swaps</h1>
+	<div class="row"> 
+
+    	<div class="col-md-4">
+    		<div class="panel panel-danger">
+  				<div class="panel-heading">{{swapperName this.u1}}</div>
+  				<div class="panel-body">
+  					<dl class="viewswaps dl-horizontal">
+						<dt>Name:</dt><dd>{{swapperName this.u1}}</dd>
+						<dt>Date:</dt><dd>Date 1 to Date 2</dd>
+						<dt>Notes:</dt><dd>Notes</dd>
+					</dl>
+					<div class="form-group">
+						<div class="col-lg-10">
+						    <textarea class="form-control" rows="3" id="textArea"></textarea>
+						    <span class="help-block">Is there anything you want them to know? </span>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary pull-right">I Can Swap!</button>
+  				</div>
+			</div>
+    	</div> 
+
+    </div>
+	
+</template>

@@ -19,7 +19,14 @@ Router.map(function () {
         path: '/profile',
         template: 'profile'
     });
-
+    this.route('urgentswaps', {
+        path: '/urgentswaps',
+        template: 'urgentswaps'
+    });
+    this.route('viewswap', {
+        path: '/viewswap',
+        template: 'viewswap'
+    });
     this.route('propose', {
         path: '/propose',
         template: 'propose',
