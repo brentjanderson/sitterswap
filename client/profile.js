@@ -2,18 +2,28 @@ Template.profile.userEmail = function() {
 	var u = Meteor.user();
 	if (u !== undefined)
 		return u.emails[0].address;
+	return '';
 };
 
 Template.profile.userFullName = function(){
 	var u = Meteor.user();
 	if (u !== undefined)
 		return u.profile.name;
+	return '';
 }
 
 Template.profile.userPhone = function(){
 	var u = Meteor.user();
 	if (u !== undefined)
 		return u.profile.phone;
+	return '';
+}
+
+Template.profile.userLink = function(){
+	var u = Meteor.user();
+	if (u !== undefined)
+		return u._id;
+	return '';
 }
 
 Template.profile.swapperName = function(id){
