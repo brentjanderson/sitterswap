@@ -11,7 +11,7 @@ Template.propose.events({
 		console.log('fired');
 		var user = Meteor.users.findOne({_id:event.target.getAttribute("id")});
 		console.log(user);
-		SwapShips.insert({approved:false, u1:Meteor.userId(), u2:user._id, pDate: new Date()});
+		SwapShips.insert({approved:false, snooze:false, u1:Meteor.userId(), u2:user._id, pDate: new Date()});
 	}
 
 })

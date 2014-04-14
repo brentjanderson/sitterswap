@@ -40,7 +40,15 @@ Template.profile.events({
 	'click button.approve': function(event){
 		var swapship = SwapShips.findOne({_id:event.target.getAttribute("id")});
 		SwapShips.update({_id:swapship._id},{$set:{approved:true, cDate: new Date()}});
-		SwapShips.insert({approved:true, u1:swapship.u2, u2:swapship.u1, pDate: new Date(), cDate: new Date()})
+		SwapShips.insert({approved:true, snooze:false, u1:swapship.u2, u2:swapship.u1, pDate: new Date(), cDate: new Date()})
+	},
+	'click button.snooze': function(event){
+		var swapship = SwapShips.findOne({_id:event.target.getAttribute("id")});
+		SwapShips.update({_id:swapship._id},{$set:{snooze:true}});
+	},
+	'click button.unsnooze': function(event){
+		var swapship = SwapShips.findOne({_id:event.target.getAttribute("id")});
+		SwapShips.update({_id:swapship._id},{$set:{snooze:false}});
 	},
 	'click button.remove': function(event){
 		var swapship = SwapShips.findOne({_id:event.target.getAttribute("id")});

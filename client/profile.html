@@ -5,6 +5,7 @@
 		<dt>Name:</dt><dd>{{userFullName}}</dd>
 		<dt>E-Mail:</dt><dd>{{userEmail}}</dd>
 		<dt>Phone:</dt><dd>{{userPhone}}</dd>
+		<dt>My Swap-ship link</dt><dd>http://www.sitterswap.org/propose?uid={{userLink}}</dd>
 	</dl>
 	<br/>
 	<br/>
@@ -12,6 +13,7 @@
 		<thead>
 			<th>Name</th>
 			<th>Since</th>
+			<th>Snooze</th>
 			<th>Remove</th>
 		</thead>
 		<tbody>
@@ -19,6 +21,13 @@
 			<tr>
 				<td>{{swapperName this.u1}}</td>
 				<td>{{this.cDate}}</td>
+				<td>
+					{{#if this.snooze}}
+						<button id="{{this._id}}" class="unsnooze">Unsnooze</button>
+					{{else}}
+						<button id="{{this._id}}" class="snooze">snooze</button>
+					{{/if}}
+				</td>
 				<td><button id="{{this._id}}" class="remove">X</button></td>
 			</tr>
 		{{/each}}
