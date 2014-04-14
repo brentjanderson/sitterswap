@@ -16,8 +16,24 @@ Router.map(function () {
     });
 
     this.route('profile', {
-    	path: '/profile',
-    	template: 'profile'
+        path: '/profile',
+        template: 'profile'
+    });
+    this.route('urgentswaps', {
+        path: '/urgentswaps',
+        template: 'urgentswaps'
+    });
+    this.route('viewswap', {
+        path: '/viewswap',
+        template: 'viewswap'
+    });
+    this.route('propose', {
+        path: '/propose',
+        template: 'propose',
+        data: function(){
+            var params = this.params;
+            return Meteor.users.findOne({_id:this.params.uid});
+        }
     });
 
     this.route('newswap', {

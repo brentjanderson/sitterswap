@@ -2,6 +2,67 @@
 	<h1>Profile</h1>
 
 	<dl class="dl-horizontal">
-		<dt>eMail:</dt><dd>{{userEmail}}</dd>
+		<dt>Name:</dt><dd>{{userFullName}}</dd>
+		<dt>E-Mail:</dt><dd>{{userEmail}}</dd>
+		<dt>Phone:</dt><dd>{{userPhone}}</dd>
+		<dt>My Swap-ship link</dt><dd>http://www.sitterswap.org/propose?uid={{userLink}}</dd>
 	</dl>
+	<br/>
+	<br/>
+	<table>
+		<thead>
+			<th>Name</th>
+			<th>Since</th>
+			<th>Snooze</th>
+			<th>Remove</th>
+		</thead>
+		<tbody>
+		{{#each swappers}}
+			<tr>
+				<td>{{swapperName this.u1}}</td>
+				<td>{{this.cDate}}</td>
+				<td>
+					{{#if this.snooze}}
+						<button id="{{this._id}}" class="unsnooze">Unsnooze</button>
+					{{else}}
+						<button id="{{this._id}}" class="snooze">snooze</button>
+					{{/if}}
+				</td>
+				<td><button id="{{this._id}}" class="remove">X</button></td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+
+	<table>
+		<thead>
+			<th>Name</th>
+			<th>Request Date</th>
+			<th>Approve</th>
+		</thead>
+		<tbody>
+		{{#each pendingSwappers}}
+			<tr>
+				<td>{{swapperName this.u1}}</td>
+				<td>{{this.pDate}}</td>
+				<td><button id="{{this._id}}" class="approve">Approve</button></td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+
+	<table>
+		<thead>
+			<th>Name</th>
+			<th>Request Date</th>
+		</thead>
+		<tbody>
+		{{#each requestedSwappers}}
+			<tr>
+				<td>{{swapperName this.u1}}</td>
+				<td>{{this.pDate}}</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
 </template>
