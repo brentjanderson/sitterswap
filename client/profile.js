@@ -1,30 +1,30 @@
 Template.profile.userEmail = function() {
 	var u = Meteor.user();
-	if (u !== undefined)
+	if (u !== undefined && u.emails)
 		return u.emails[0].address;
 	return '';
 };
 
 Template.profile.userFullName = function(){
 	var u = Meteor.user();
-	if (u !== undefined)
+	if (u !== undefined && u.profile)
 		return u.profile.name;
 	return '';
-}
+};
 
 Template.profile.userPhone = function(){
 	var u = Meteor.user();
-	if (u !== undefined)
+	if (u !== undefined && u.profile)
 		return u.profile.phone;
 	return '';
-}
+};
 
 Template.profile.userLink = function(){
 	var u = Meteor.user();
-	if (u !== undefined)
+	if (u !== undefined && u.profile)
 		return u._id;
 	return '';
-}
+};
 
 Template.profile.swapperName = function(id){
 	var swapper = Meteor.users.findOne(id);
@@ -32,19 +32,19 @@ Template.profile.swapperName = function(id){
 		return swapper.profile.name;
 	}
 	return id;
-}
+};
 
 Template.profile.swappers = function() {
 	return SwapShips.find({approved: true, u2:Meteor.userId()}).fetch()
-}
+};
 
 Template.profile.pendingSwappers = function(){
 	return SwapShips.find({approved: false, u2:Meteor.userId()}).fetch()
-}
+};
 
 Template.profile.requestedSwappers = function(){
 	return SwapShips.find({approved: false, u1:Meteor.userId()}).fetch()
-}
+};
 
 Template.profile.events({
 	'click button.approve': function(event){
@@ -66,4 +66,4 @@ Template.profile.events({
 		SwapShips.remove({_id:SwapShips.findOne({u2:swapship.u1, u1:swapship.u2})._id});
 	}
 
-})
+});
