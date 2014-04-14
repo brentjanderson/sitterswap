@@ -23,9 +23,14 @@ Router.map(function () {
         path: '/urgentswaps',
         template: 'urgentswaps'
     });
+    this.route('swaps');
+    this.route('plannedSwaps');
     this.route('viewswap', {
-        path: '/viewswap',
-        template: 'viewswap'
+        path: '/viewswap/:id',
+        template: 'viewswap',
+        data: function() { 
+            return SwapOpps.findOne(this.params.id);
+        }
     });
     this.route('propose', {
         path: '/propose',
