@@ -40,7 +40,7 @@
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
           <button class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-primary" id="createswap">Create</button>
         </div>
       </div>
     </fieldset>
@@ -49,17 +49,41 @@
   <script type="text/javascript">
     $(function() {
       $("#swapdate").datepicker();
-      
+    });
+
+    $(function() {
       $('input[type="time"]').timepicker({
         showPeriod: true,
         showLeadingZero: true
       });
     });
 
-    // $('input[type="time"]').timepicker({
-    //   showPeriod: true,
-    //   showLeadingZero: true
-    // });
+    $(function() {
+      $("#createswap").click(function() {
+        var uid = Meteor.userId();
+        var swapdate = Date.parse($('#swapdate').val());
+        var starttime = Date.parse($('#swapdate').val() + "," + $('#starttime').val());
+        var endtime = Date.parse($('#swapdate').val() + "," + $('#endtime').val());
+        var notes = $('#childnotes').val();
+        var swaptype = $('#swaptype').val();
+        var urgent = false;
+        
+        if (Date.parse('t + 3 d') > swapdate) {
+          urgent = true;
+        }
+        
+        SwapOpps.insert({
+          ownerId: uid,
+          startDate: swapdate,
+          startTime: starttime,
+          endTime: endtime,
+          urgent: urgent,
+          notes: notes,
+          swapType: swaptype
+        });
+
+      });
+    });
   </script>
 
 </template>
