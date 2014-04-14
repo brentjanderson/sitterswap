@@ -1,68 +1,101 @@
 <template name="profile">
-	<h1>Profile</h1>
-
-	<dl class="dl-horizontal">
-		<dt>Name:</dt><dd>{{userFullName}}</dd>
-		<dt>E-Mail:</dt><dd>{{userEmail}}</dd>
-		<dt>Phone:</dt><dd>{{userPhone}}</dd>
-		<dt>My Swap-ship link</dt><dd>http://www.sitterswap.org/propose?uid={{userLink}}</dd>
-	</dl>
-	<br/>
-	<br/>
-	<table>
+	<h2>My Profile</h2>
+	<div >
+		<form class="form-horizontal">
+    		<fieldset>
+	      		<legend>My Profile Information</legend>
+		      	<div class="form-group">
+					<label for="userName" class="col-lg-1 col-md-1 control-label">Name</label>
+					<div class="col-lg-10 col-md-10">
+						<input class="form-control" type="text" id="userName" name="userName">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="userName" class="col-lg-1 col-md-1 control-label">E-Mail</label>
+					<div class="col-lg-10 col-md-10">
+						<input disabled="disabled" class="form-control" type="email" id="userEmail" name="userEmail">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="userName" class="col-lg-1 col-md-1 control-label">Phone</label>
+					<div class="col-lg-10 col-md-10">
+						<input class="form-control" type="text" id="userPhone" name="userPhone">
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		<button class="btn btn-primary update">Update</button>
+		<h3>My Swapship Link</h3>
+		<p>http://www.sitterswap.org/propose?uid={{userLink}}</p>
+	</div>
+	
+	<h2>Pending Swapships</h2>
+	<table class="table table-hover">
 		<thead>
-			<th>Name</th>
-			<th>Since</th>
-			<th>Snooze</th>
-			<th>Remove</th>
-		</thead>
-		<tbody>
-		{{#each swappers}}
-			<tr>
-				<td>{{swapperName this.u1}}</td>
-				<td>{{this.cDate}}</td>
-				<td>
-					{{#if this.snooze}}
-						<button id="{{this._id}}" class="unsnooze">Unsnooze</button>
-					{{else}}
-						<button id="{{this._id}}" class="snooze">snooze</button>
-					{{/if}}
-				</td>
-				<td><button id="{{this._id}}" class="remove">X</button></td>
-			</tr>
-		{{/each}}
-		</tbody>
-	</table>
-
-	<table>
-		<thead>
-			<th>Name</th>
-			<th>Request Date</th>
-			<th>Approve</th>
+			<th class="col-lg-3 col-md-3 col-sm-3">Name</th>
+			<th class="col-lg-3 col-md-3 col-sm-3">Request Date</th>
+			<th class="col-lg-3 col-md-3 col-sm-3">Approve</th>
+			<th >Reject</th>
 		</thead>
 		<tbody>
 		{{#each pendingSwappers}}
 			<tr>
 				<td>{{swapperName this.u1}}</td>
-				<td>{{this.pDate}}</td>
-				<td><button id="{{this._id}}" class="approve">Approve</button></td>
+				<td>{{formatDate this.pDate}}</td>
+				<td><button id="{{this._id}}" class="approve btn btn-success">Approve</button></td>
+				<td><button id="{{this._id}}" class="reject btn btn-default">Reject</button></td>
 			</tr>
 		{{/each}}
 		</tbody>
 	</table>
 
-	<table>
+	<h2>My Swapships</h2>
+	<table class="table table-hover">
 		<thead>
-			<th>Name</th>
-			<th>Request Date</th>
+			<th class="col-lg-3 col-md-3 col-sm-3">Name</th>
+			<th class="col-lg-3 col-md-3 col-sm-3">Since</th>
+			<th class="col-lg-3 col-md-3 col-sm-3">Snooze</th>
+			<th >Remove</th>
+		</thead>
+		<tbody>
+		{{#each swappers}}
+			<tr>
+				<td>{{swapperName this.u1}}</td>
+				<td>{{formatDate this.cDate}}</td>
+				<td>
+					{{#if this.snooze}}
+						<button id="{{this._id}}" class="unsnooze btn btn-warning">Unsnooze</button>
+					{{else}}
+						<button id="{{this._id}}" class="snooze btn btn-warning">Snooze</button>
+					{{/if}}
+				</td>
+				<td><button id="{{this._id}}" class="remove btn btn-default">Remove</button></td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+	
+	<h2>Requested Swapships</h2>
+	<table class="table table-hover">
+		<thead>
+			<th class="col-lg-3 col-md-3 col-sm-3">Name</th>
+			<th class="col-lg-3 col-md-3 col-sm-3">Request Date</th>
+			<th>Recind</th>
 		</thead>
 		<tbody>
 		{{#each requestedSwappers}}
 			<tr>
 				<td>{{swapperName this.u1}}</td>
-				<td>{{this.pDate}}</td>
+				<td>{{formatDate this.pDate}}</td>
+				<td><button id="{{this._id}}" class="recind btn btn-default">Recind</button></td>
 			</tr>
 		{{/each}}
 		</tbody>
 	</table>
+
+	<script>
+		$("#userName").val(Template.profile.userFullName());
+		$("#userEmail").val(Template.profile.userEmail());
+		$("#userPhone").val(Template.profile.userPhone());
+	</script>
 </template>

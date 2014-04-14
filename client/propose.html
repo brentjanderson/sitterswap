@@ -1,8 +1,20 @@
 <template name="propose">
 	<h1>Propose a Swap-ship!</h1>
 	{{#if currentUser}}
-    	<h2>Start swapping with {{swapperName _id}}</h2>
-    	<button id="{{_id}}" class="propose">Propose Swap-ship</button>
+		{{#if validUid _id}}
+	    	{{#if alreadyExists _id}}
+		    	{{#if isConfirmed _id}}
+		    		<h2>You are already swapping with {{swapperName _id}}</h2>
+	    		{{else}}
+	    			<h2>You have a pending request to {{swapperName _id}}</h2>
+	    		{{/if}}
+	    	{{else}}
+	    		<h2>Start swapping with {{swapperName _id}}</h2>
+		    	<button id="{{_id}}" class="propose btn btn-lg btn-primary">Propose Swap-ship</button>
+	    	{{/if}}
+    	{{else}}
+    		<h2>Invalid request</h2>
+    	{{/if}}
     {{else}}
     	<h2>Please log in or create an account to propose a Swap-ship</h2>
     {{/if}}
