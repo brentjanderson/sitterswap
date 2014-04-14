@@ -95,3 +95,13 @@ Template.profile.events({
 	}
 
 });
+
+Template.profile.absoluteUrl = function() {
+	return Meteor.absoluteUrl();
+};
+
+Template.profile.rendered = function() {
+    try {
+        FB.XFBML.parse();
+    }catch(e) {}
+};

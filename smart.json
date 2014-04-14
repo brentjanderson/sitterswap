@@ -3,6 +3,7 @@
     "iron-router": {},
     "apm": {},
     "toastjs": {},
-    "jquery-ui": {}
+    "jquery-ui": {},
+    "facebook-sdk": {}
   }
 }

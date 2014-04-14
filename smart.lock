@@ -5,7 +5,8 @@
       "iron-router": {},
       "apm": {},
       "toastjs": {},
-      "jquery-ui": {}
+      "jquery-ui": {},
+      "facebook-sdk": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
         "tag": "v1.9.2",
         "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
+      },
+      "facebook-sdk": {
+        "git": "https://github.com/hugesuccess/facebook-sdk.git",
+        "tag": "v0.0.44",
+        "commit": "cb71b860085ec6453b61644b31f6351e7de2c1b0"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

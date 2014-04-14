@@ -1,18 +1,17 @@
 <template name="viewswap">
 	<div id="viewswap-container">
-        <h1 class="text-primary">View The Swap</h1>
+        <h1 class="text-primary">Swap Information</h1>
             <div class="panel panel-info">
-                <div class="panel-heading">Swap-e Name</div>
+                <div class="panel-heading">Swap with {{swapRequestor.name}}</div>
                 <div class="panel-body">
                     <dl class="viewswaps dl-horizontal">
-                        <dt>Name:</dt><dd>Name</dd>
-                        <dt>Email:</dt><dd>Email</dd>
-                        <dt>Phone:</dt><dd>Phone</dd>
-
+                        <dt>Name:</dt><dd>{{swapRequestor.name}}</dd>
+                        <dt>Email:</dt><dd>{{swapRequestor.email}}</dd>
+                        <dt>Phone:</dt><dd>{{swapRequestor.phone}}</dd>
                     </dl>
                     <dl class="viewswaps dl-horizontal">
                         <dt>Date:</dt><dd>Date 1 to Date 2</dd>
-                        <dt>Notes:</dt><dd>Notes</dd>
+                        <dt>Notes:</dt><dd>{{swap.notes}}</dd>
                     </dl>
                     <div class="form-group">
                         <div class="col-lg-10">
