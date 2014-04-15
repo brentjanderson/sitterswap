@@ -21,3 +21,7 @@ Template.viewswap.swapRequestor = function() {
 
 	return requestor;
 };
+
+Template.viewswap.sitter = function() {
+	console.log(this);
+};

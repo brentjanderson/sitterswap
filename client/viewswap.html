@@ -13,6 +13,9 @@
                         <dt>Date:</dt><dd>Date 1 to Date 2</dd>
                         <dt>Notes:</dt><dd>{{swap.notes}}</dd>
                     </dl>
+                    {{#if swap.sitterId}}
+                    <p>This swap has been claimed by {{sitter.name}}</p>
+                    {{else}}
                     <div class="form-group">
                         <div class="col-lg-10">
                             <textarea class="form-control" rows="3" id="textArea"></textarea>
@@ -20,6 +23,7 @@
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary pull-right">I Can Swap!</button>
+                    {{/if}}
                 </div>
             </div>   
     </div>
