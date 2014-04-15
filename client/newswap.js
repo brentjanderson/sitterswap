@@ -31,6 +31,8 @@ Template.newswap.events({
           notes: notes,
           swapType: swaptype
         });
+
+        Toast.success("New swap created! See it in action here!");
         Router.go('viewswap',{id: sid});
         return false;
     }

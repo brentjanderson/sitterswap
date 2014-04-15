@@ -4,6 +4,7 @@
     "apm": {},
     "toastjs": {},
     "jquery-ui": {},
-    "facebook-sdk": {}
+    "facebook-sdk": {},
+    "moment": {}
   }
 }

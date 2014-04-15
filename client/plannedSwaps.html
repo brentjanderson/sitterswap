@@ -1,0 +1,9 @@
+<template name="plannedSwaps">
+	<h1 class="text-success">Planned Swaps</h1>
+	<p><em>These are swaps you have committed to making</em></p>
+	<div class="row"> 
+	    {{#each swaps}}
+	        {{> swapInstance}}
+	    {{/each}}
+    </div>
+</template>

@@ -21,7 +21,7 @@ Router.map(function () {
     });
     this.route('urgentswaps', {
         path: '/urgentswaps',
-        template: 'urgentswaps'
+        template: 'urgentSwaps'
     });
     this.route('swaps');
     this.route('plannedSwaps');
