@@ -1,9 +1,9 @@
 Template.homedash.swapOpps = function() {
-    return SwapOpps.find({urgent: {$not: true}, sitterId: {$not: 1}}).count();
+    return SwapOpps.find({urgent: {$not: true}, sitterId: {$exists:false}}).count();
 };
 
 Template.homedash.urgentSwaps = function() {
-    return SwapOpps.find({urgent: true, sitterId: {$not: 1}}).count();
+    return SwapOpps.find({urgent: true, sitterId: {$exists:false}}).count();
 };
 
 Template.homedash.plannedSwaps = function() {

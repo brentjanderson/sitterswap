@@ -14,7 +14,11 @@
                         <span class="help-block">Is there anything you want them to know? </span>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary pull-right btn-swap">I Can Swap!</button>
+                {{#if isPlanned}}
+                    <button type="button" class="btn btn-danger pull-right btn-oops">I Can't Make It</button>            
+                {{else}}
+                    <button type="button" class="btn btn-primary pull-right btn-swap">I Can Swap!</button>
+                {{/if}}
             </div>
         </div>
     </div> 
