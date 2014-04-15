@@ -23,5 +23,17 @@ Template.viewswap.swapRequestor = function() {
 };
 
 Template.viewswap.sitter = function() {
-	console.log(this);
+	var swap = Router.current().data();
+	var sitterObj = Meteor.users.findOne({_id: swap.sitterId });
+	if (!sitterObj) {
+		return;
+	}
+
+	sitterObj.profile = sitterObj.profile || {};
+
+	var sitter = {
+		name: sitterObj.profile.name
+	};
+	console.log(sitter);
+	return sitter;
 };

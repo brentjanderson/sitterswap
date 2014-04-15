@@ -27,9 +27,50 @@ Template.swapInstance.panelStyle = function() {
     }
 };
 
-Template.swapInstance.isPlanned = function(){
-    if(this.sitterId){
-        return true;
+Template.swapInstance.swapRequestor = function() {
+    var swap = this // Router.current().data();
+
+    if (!swap) {
+        return;
     }
-    return false;
-}
+
+    var userObj = Meteor.users.findOne({_id: swap.ownerId});
+    if (!userObj) {
+        return;
+    }
+
+    userObj.profile = userObj.profile || {};
+    var userEmail = userObj.emails[0] || {};
+
+    var requestor = {
+        name: userObj.profile.name || "",
+        email: userEmail.address,
+        phone: userObj.profile.phone
+    };
+
+    return requestor;
+};
+
+Template.swapInstance.sitter = function() {
+    var swap = this;
+    if (!swap || !swap.sitterId) {
+        return;
+    }
+
+    var sitterObj = Meteor.users.findOne({_id: swap.sitterId });
+    if (!sitterObj) {
+        return;
+    }
+
+    sitterObj.profile = sitterObj.profile || {};
+
+    var sitter = {
+        name: sitterObj.profile.name
+    };
+    
+    if (swap.sitterId === Meteor.userId()) {
+        sitter.name = "You";
+    }
+
+    return sitter;
+};

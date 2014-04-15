@@ -2,9 +2,13 @@
     <h1>Swaps</h1>
     
     <div class="row"> 
-    {{#each swaps}}
-            {{> swapInstance}}
-    {{/each}}
+	    {{#each swaps}}
+            <div class="col-md-4">
+		        {{> swapInstance}}
+	        </div>
+	    {{else}}
+		    <p><em>None of your friends have asked for swaps - <a href="/profile">invite them!</a></em></p>
+	    {{/each}}
     </div>
 
 </template>

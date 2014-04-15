@@ -1,31 +1,6 @@
 <template name="viewswap">
 	<div id="viewswap-container">
         <h1 class="text-primary">Swap Information</h1>
-            <div class="panel panel-info">
-                <div class="panel-heading">Swap with {{swapRequestor.name}}</div>
-                <div class="panel-body">
-                    <dl class="viewswaps dl-horizontal">
-                        <dt>Name:</dt><dd>{{swapRequestor.name}}</dd>
-                        <dt>Email:</dt><dd>{{swapRequestor.email}}</dd>
-                        <dt>Phone:</dt><dd>{{swapRequestor.phone}}</dd>
-                    </dl>
-                    <dl class="viewswaps dl-horizontal">
-                        <dt>Date:</dt><dd>Date 1 to Date 2</dd>
-                        <dt>Notes:</dt><dd>{{swap.notes}}</dd>
-                    </dl>
-                    {{#if swap.sitterId}}
-                    <p>This swap has been claimed by {{sitter.name}}</p>
-                    {{else}}
-                    <div class="form-group">
-                        <div class="col-lg-10">
-                            <textarea class="form-control" rows="3" id="textArea"></textarea>
-                            <span class="help-block">Is there anything you want them to know? </span>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-primary pull-right">I Can Swap!</button>
-                    {{/if}}
-                </div>
-            </div>   
+            {{> swapInstance}}  
     </div>
-	
 </template>

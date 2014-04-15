@@ -1,25 +1,30 @@
 <template name="swapInstance">
-    <div class="col-md-4">
-        <div class="panel panel-{{panelStyle}}">
-            <div class="panel-heading"><strong><a href="/viewswap/{{_id}}">Swap from {{ownerName}}</a></strong></div>
-            <div class="panel-body">
-                <dl class="viewswaps dl-horizontal">
-                    <dt>Name:</dt><dd>{{ownerName}}</dd>
-                    <dt>Date:</dt><dd>{{startTimeFormatted}} to {{endTimeFormatted}}</dd>
-                    <dt>Notes:</dt><dd>{{notes}}</dd>
-                </dl>
-                <div class="form-group">
-                    <div class="col-lg-10">
-                        <textarea class="form-control" rows="3" id="textArea"></textarea>
-                        <span class="help-block">Is there anything you want them to know? </span>
-                    </div>
-                </div>
-                {{#if isPlanned}}
-                    <button type="button" class="btn btn-danger pull-right btn-oops">I Can't Make It</button>            
-                {{else}}
-                    <button type="button" class="btn btn-primary pull-right btn-swap">I Can Swap!</button>
-                {{/if}}
-            </div>
+    <div class="panel panel-{{panelStyle}}">
+        <div class="panel-heading"><strong><a href="/viewswap/{{_id}}">Swap with {{swapRequestor.name}}</a></strong></div>
+        <div class="panel-body">
+            <dl class="viewswaps dl-horizontal">
+                <dt>Name:</dt><dd>{{swapRequestor.name}}</dd>
+                <dt>Email:</dt><dd>{{swapRequestor.email}}</dd>
+                <dt>Phone:</dt><dd>{{swapRequestor.phone}}</dd>
+            </dl>
+            <dl class="viewswaps dl-horizontal">
+                <dt>Date:</dt><dd>Date 1 to Date 2</dd>
+                <dt>Notes:</dt><dd>{{notes}}</dd>
+            </dl>
+
+
+             {{#if sitterId}}
+             <p>{{sitter.name}} claimed this swap</p>
+             <button type="button" class="btn btn-danger pull-right btn-oops">I Can't Make It</button> 
+             {{else}}
+             <div class="form-group">
+                 <div class="col-lg-10">
+                     <textarea class="form-control" rows="3" id="textArea"></textarea>
+                     <span class="help-block">Is there anything you want them to know? </span>
+                 </div>
+             </div>
+             <button type="button" class="btn btn-primary pull-right btn-swap">I Can Swap!</button>
+             {{/if}}
         </div>
-    </div> 
+    </div>
 </template>
