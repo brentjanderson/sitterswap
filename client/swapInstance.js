@@ -17,6 +17,14 @@ Template.swapInstance.events({
     }
 });
 
+Template.swapInstance.startTimeFormatted = function() {
+    return moment(this.startTime).format('MMMM DD, YYYY H:mm A');
+};
+
+Template.swapInstance.endTimeFormatted = function() {
+    return moment(this.startTime).format('H:mm A');
+};
+
 Template.swapInstance.panelStyle = function() {
     if(this.sitterId){
         return "success";
