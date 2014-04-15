@@ -1,18 +1,9 @@
-# SitterSwap.org Meteor Project
+# SitterSwap
 
-> Because everyone loves babies
+Sitter Swap helps parents with young children swap baby sitting services with their friends. A working example of the system is live at http://www.sitterswap.org. The code is also available on GitHub upon request (send Brent your github username to join the repository).
 
-Please update this document with details as needed.
-
-## Getting Started
-To get started with SitterSwap, you will need to get Meteor set up on your system.
-
-### For Mac
-
-    curl https://install.meteor.com/ | sh
-
-### For Windows
-This is more complicated. Meteor will run on Windows (and when deployed anyone can visit a Meteor site in a modern browser), but Meteorite - the community package manager - doesn't work properly on Windows. SitterSwap.org depends on Meteorite
-
-To run Meteor with Meteorite on Windows, check out the instructions at http://win.meteor.com under "Virtualized Solutions". When finished, Meteor will run in a lightweight Linux VM but you will be able to edit and manage your project from Windows like it was running locally.
-
+## Team Members
+* Morgan Robertson
+* Matt Winn
+* Scott Romney
+* Brent Anderson
