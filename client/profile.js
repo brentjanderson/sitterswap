@@ -2,14 +2,14 @@ Template.profile.userEmail = function() {
 	var u = Meteor.user();
 	if (u !== undefined && u.emails)
 		return u.emails[0].address;
-	return '-';
+	return '';
 };
 
 Template.profile.userFullName = function(){
 	var u = Meteor.user();
 	if (u !== undefined && u.profile)
 		return u.profile.name;
-	return '-';
+	return '';
 };
 
 Template.profile.userPhone = function(){
@@ -17,14 +17,14 @@ Template.profile.userPhone = function(){
 	if (u !== undefined && u.profile)
 		if(u.profile.phone !== undefined)
 			return u.profile.phone;
-	return '-';
+	return '';
 };
 
 Template.profile.userLink = function(){
 	var u = Meteor.user();
-	if (u !== undefined && u.profile)
+	if (u !== undefined)
 		return u._id;
-	return '-';
+	return '';
 };
 
 Template.profile.swapperName = function(id){
