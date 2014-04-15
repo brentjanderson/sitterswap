@@ -22,7 +22,7 @@ Template.swapInstance.startTimeFormatted = function() {
 };
 
 Template.swapInstance.endTimeFormatted = function() {
-    return moment(this.startTime).format('H:mm A');
+    return moment(this.endTime).format('H:mm A');
 };
 
 Template.swapInstance.panelStyle = function() {
