@@ -35,7 +35,7 @@ Template.profile.swapperName = function(id){
 	if(swapper !== null && swapper.profile){
 		return swapper.profile.name;
 	}
-	return id;
+	return swapper.emails[0].address;
 };
 
 Template.profile.formatDate = function(date){
