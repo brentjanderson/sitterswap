@@ -14,7 +14,7 @@
 .ui-timepicker-table { display: inline-table; width: 0; }
 .ui-timepicker-table table { margin:0.15em 0 0 0; border-collapse: collapse; }
 
-.ui-timepicker-hours, .ui-timepicker-minutes { padding: 0.2em;  }
+.ui-timepicker-hours, .ui-timepicker-minutes, { padding: 0.2em;  }
 
 .ui-timepicker-table .ui-timepicker-title { line-height: 1.8em; text-align: center; }
 .ui-timepicker-table td { padding: 0.1em; width: 2.2em; }
@@ -31,7 +31,7 @@
 }
 /* anchors for clickable cells */
 .ui-timepicker-table td a {
-    display:block;
+    /*display:block;*/
     padding:0.2em 0.3em 0.2em 0.5em;
     width: 1.2em;
     cursor: pointer;
