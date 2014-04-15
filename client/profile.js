@@ -1,7 +1,10 @@
 Template.profile.userEmail = function() {
 	var u = Meteor.user();
-	if (u !== undefined && u.emails)
+	if (u && u.emails) {
 		return u.emails[0].address;
+	} else {
+		return u.services.facebook.email;
+	}
 	return '';
 };
 

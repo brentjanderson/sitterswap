@@ -48,11 +48,16 @@ Template.swapInstance.swapRequestor = function() {
     }
 
     userObj.profile = userObj.profile || {};
-    var userEmail = userObj.emails[0] || {};
+    var userEmail;
+    if (userObj.services.facebook) {
+        userEmail = userObj.services.facebook.email;
+    } else {
+        userEmail = userObj.emails[0].address;
+    }
 
     var requestor = {
         name: userObj.profile.name || "",
-        email: userEmail.address,
+        email: userEmail,
         phone: userObj.profile.phone
     };
 
