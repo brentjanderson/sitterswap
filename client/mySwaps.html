@@ -1,0 +1,11 @@
+<template name="mySwaps">
+	<h1 class="text-success">My Swaps</h1>
+	<p><em>These are swap requests you have made to your friends</em></p>
+	<div class="row"> 
+	    {{#each swaps}}
+	        <div class="col-md-4">
+	        {{> swapInstance}}
+	        </div>
+	    {{/each}}
+    </div>
+</template>

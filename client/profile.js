@@ -1,15 +1,18 @@
 Template.profile.userEmail = function() {
 	var u = Meteor.user();
-	if (u !== undefined && u.emails)
+	if (u && u.emails) {
 		return u.emails[0].address;
-	return '-';
+	} else {
+		return u.services.facebook.email;
+	}
+	return '';
 };
 
 Template.profile.userFullName = function(){
 	var u = Meteor.user();
 	if (u !== undefined && u.profile)
 		return u.profile.name;
-	return '-';
+	return '';
 };
 
 Template.profile.userPhone = function(){
@@ -17,14 +20,14 @@ Template.profile.userPhone = function(){
 	if (u !== undefined && u.profile)
 		if(u.profile.phone !== undefined)
 			return u.profile.phone;
-	return '-';
+	return '';
 };
 
 Template.profile.userLink = function(){
 	var u = Meteor.user();
-	if (u !== undefined && u.profile)
+	if (u !== undefined)
 		return u._id;
-	return '-';
+	return '';
 };
 
 Template.profile.swapperName = function(id){
@@ -32,7 +35,7 @@ Template.profile.swapperName = function(id){
 	if(swapper !== null && swapper.profile){
 		return swapper.profile.name;
 	}
-	return id;
+	return swapper.emails[0].address;
 };
 
 Template.profile.formatDate = function(date){

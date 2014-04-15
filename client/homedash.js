@@ -9,3 +9,7 @@ Template.homedash.urgentSwaps = function() {
 Template.homedash.plannedSwaps = function() {
     return Template.plannedSwaps.swaps().count();
 };
+
+Template.homedash.mySwaps = function() {
+    return Template.mySwaps.swaps().count();
+};

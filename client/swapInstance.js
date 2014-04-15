@@ -17,6 +17,14 @@ Template.swapInstance.events({
     }
 });
 
+Template.swapInstance.startTimeFormatted = function() {
+    return moment(this.startTime).format('MMMM DD, YYYY H:mm A');
+};
+
+Template.swapInstance.endTimeFormatted = function() {
+    return moment(this.startTime).format('H:mm A');
+};
+
 Template.swapInstance.panelStyle = function() {
     if(this.sitterId){
         return "success";
@@ -40,11 +48,16 @@ Template.swapInstance.swapRequestor = function() {
     }
 
     userObj.profile = userObj.profile || {};
-    var userEmail = userObj.emails[0] || {};
+    var userEmail;
+    if (userObj.services.facebook) {
+        userEmail = userObj.services.facebook.email;
+    } else {
+        userEmail = userObj.emails[0].address;
+    }
 
     var requestor = {
         name: userObj.profile.name || "",
-        email: userEmail.address,
+        email: userEmail,
         phone: userObj.profile.phone
     };
 

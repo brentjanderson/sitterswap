@@ -25,6 +25,7 @@ Router.map(function () {
     });
     this.route('swaps');
     this.route('plannedSwaps');
+    this.route('mySwaps');
     this.route('viewswap', {
         path: '/viewswap/:id',
         template: 'viewswap',
