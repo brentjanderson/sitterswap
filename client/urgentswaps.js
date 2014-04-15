@@ -1,5 +1,5 @@
 Template.urgentSwaps.swaps = function() {
-    return SwapOpps.find({ sitterId: {$not: 1}, urgent: true, ownerId: {$not: Meteor.userId()} },{transform: function(doc) {
+    return SwapOpps.find({ sitterId: {$exists: false}, urgent: true, ownerId: {$not: Meteor.userId()} },{transform: function(doc) {
     	// Get the name of the owner
     	var owner = Meteor.users.findOne({_id: doc.ownerId});
     	if (owner && owner.profile && owner.profile.name) {

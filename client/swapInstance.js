@@ -9,15 +9,19 @@ Template.swapInstance.events({
         }
         Toast.success('You have requested this swap!');
         Router.go('viewswap', {id: this._id});
-	}
+	},
+    'click button.btn-oops': function(e, t){
+        if(confirm("Are you sure you can't make it?")){
+            SwapOpps.update(this._id, {$unset: {sitterId:""}});
+        }
+    }
 });
 
 Template.swapInstance.panelStyle = function() {
-    console.log(this);
-    if (this.urgent) {
-        return "warning";
-    } else if (this.sitterId) {
+    if(this.sitterId){
         return "success";
+    }else if (this.urgent) {
+        return "warning";
     } else {
         return "info";
     }
